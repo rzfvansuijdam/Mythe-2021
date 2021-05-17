@@ -5,8 +5,12 @@ using UnityEngine;
 public class Player_Climbing : Player
 {
 
+    [SerializeField] private float _climbSpeed = 1;
+
     private bool _isAtVine = false;
     private float _wallHeight = 0f;
+
+    private bool _isClimbing = false;
 
     void Start()
     {
@@ -15,33 +19,48 @@ public class Player_Climbing : Player
 
     void Update()
     {
+        _moveInputX = Input.GetAxis("Horizontal");
+        _moveInputZ = Input.GetAxis("Vertical");
+
         if (_isAtVine && Input.GetKeyDown(KeyCode.E))
         {
-            StartCoroutine("climbWall", _wallHeight);
+            if (_isClimbing)
+            {
+                _isClimbing = false;
+            }
+            else
+            {
+                StartCoroutine("StartClimbing");
+                rb.velocity *= 0;
+                _isClimbing = true;
+            }
+        }
+
+        if (_isClimbing)
+        {
+            gameObject.GetComponent<Player_Movement>().enabled = false;
+            rb.useGravity = false;
+
+            transform.position += transform.right * _moveInputX * _climbSpeed * Time.deltaTime;
+            transform.position += transform.up * _moveInputZ * _climbSpeed * Time.deltaTime;
+        }
+        else
+        {
+            gameObject.GetComponent<Player_Movement>().enabled = true;
+            rb.useGravity = true;
         }
     }
 
-    IEnumerator climbWall(float wallHeight)
+    IEnumerator StartClimbing()
     {
-        wallHeight += 0.05f;
-        float climbTime = wallHeight / 3;
-
-        gameObject.GetComponent<Player_Movement>().enabled = false;
-        rb.useGravity = false;
-
-        for (int i = 0; i < 100; i++)
+        if (rb.velocity.y >= -0.5f)
         {
-            transform.position += new Vector3(0, wallHeight / 100, 0);
-            yield return new WaitForSeconds(climbTime / 100);
+            for (int i = 0; i < 100; i++)
+            {
+                transform.position += transform.up * _climbSpeed * 2 * Time.deltaTime;
+                yield return new WaitForSeconds(0.001f);
+            }
         }
-        for (int i = 0; i < 20; i++)
-        {
-            transform.position += transform.forward / 20;
-            yield return new WaitForSeconds(climbTime / 100);
-        }
-
-        gameObject.GetComponent<Player_Movement>().enabled = true;
-        rb.useGravity = true;
 
         yield return null;
     }
@@ -59,5 +78,6 @@ public class Player_Climbing : Player
     {
         _isAtVine = false;
         _wallHeight = 0f;
+        _isClimbing = false;
     }
 }

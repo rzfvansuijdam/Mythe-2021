@@ -5,9 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    protected float _moveInputX;
+    protected float _moveInputZ;
+
     protected Rigidbody rb;
 
     [SerializeField] protected GameObject mainCamera;
+
+    //protected bool isCrouching = false;
 
     // Start is called before the first frame update
     void Start()
