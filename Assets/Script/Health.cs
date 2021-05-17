@@ -6,12 +6,6 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public static float Lives = 100f;
-  
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     private void Update()
     {
@@ -22,8 +16,8 @@ public class Health : MonoBehaviour
 
         if (Lives <= 0f)
         {
-            Debug.Log("got em");
-            Destroy(gameObject);
+          //  Debug.Log("got em");
+          //  Destroy(gameObject);
         }
     }
 }

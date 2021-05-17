@@ -8,55 +8,66 @@ public class FallingDMG : MonoBehaviour
 
     public bool grounded;
     public float timeInAir = 5;
+    public float DMGCheckpoint;
+    public float MaxTime;
+    
+    
+    
 
-    private void Start()
+
+    
+    
+    private void OnCollisionEnter(Collision col)
     {
-
-    }
-
-    private void OnCollisionEnter(Collision Col)
-    {
-        if(Col.gameObject.name == "terrain")
-        {
-            grounded = false;
-            Debug.Log("he touch my tralalal");
-        }
-        else
+        if (col.gameObject.name != "terrain")
         {
             grounded = true;
-            Debug.Log("he NOT touch my tralalal");
+            Debug.Log("1");
         }
+        else 
+        {
+            grounded = false;
+            Debug.Log("2");
+        }
+        
     }
-
-
+    
+    
     void Update()
     {
+        #region timer
         //Here we decrease the time in air from 5
-        //Grounded is used by Rigidbody controller
         if (grounded == false)
         {
             timeInAir -= 1 * Time.deltaTime;
-            Debug.Log("midair");
+           // Debug.Log("midair");
         }
-
-        //Increase the time in air to reach 5 each time we're on ground
-        if (grounded == true && timeInAir < 3 && timeInAir > 0)
+        #endregion
+        
+        #region reset_timer
+        //Increase the time in air to reach Max allowed time each time we're on ground
+        if (grounded == true && timeInAir < MaxTime && timeInAir > 0)
         {
-            timeInAir = 3;
+            timeInAir = MaxTime;
         }
-
+        #endregion
+        
+        #region death
         //Making the player die when it reaches 0
         if (timeInAir <= 0)
         {
             Debug.Log("You Died!");
             Health.Lives -= 100;
         }
-
+        #endregion
+        
+        #region damage
         //Or just damage player on a "checkpoint", in this case I use 3
-        if (timeInAir == 2 && grounded)
+        if (timeInAir == DMGCheckpoint && grounded)
         {
             Health.Lives -= 30;
             Debug.Log("many pain");
         }
+        #endregion
     }
 }
