@@ -8,18 +8,22 @@ public class FallingDMG : MonoBehaviour
 
     public bool grounded;
     public float timeInAir = 5;
-    
 
-    private void OnTriggerEnter(Collider Col)
+    private void Start()
+    {
+
+    }
+
+    private void OnCollisionEnter(Collision Col)
     {
         if(Col.gameObject.name == "terrain")
         {
-            grounded = true;
+            grounded = false;
             Debug.Log("he touch my tralalal");
         }
         else
         {
-            grounded = false;
+            grounded = true;
             Debug.Log("he NOT touch my tralalal");
         }
     }
@@ -36,19 +40,20 @@ public class FallingDMG : MonoBehaviour
         }
 
         //Increase the time in air to reach 5 each time we're on ground
-        if (grounded == true && timeInAir < 5 && timeInAir > 0)
+        if (grounded == true && timeInAir < 3 && timeInAir > 0)
         {
-            timeInAir = 5;
+            timeInAir = 3;
         }
 
         //Making the player die when it reaches 0
         if (timeInAir <= 0)
         {
             Debug.Log("You Died!");
+            Health.Lives -= 100;
         }
 
         //Or just damage player on a "checkpoint", in this case I use 3
-        if (timeInAir == 3 && grounded)
+        if (timeInAir == 2 && grounded)
         {
             Health.Lives -= 30;
             Debug.Log("many pain");

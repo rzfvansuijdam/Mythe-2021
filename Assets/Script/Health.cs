@@ -19,5 +19,11 @@ public class Health : MonoBehaviour
         {
             Debug.Log(Lives);
         }
+
+        if (Lives <= 0f)
+        {
+            Debug.Log("got em");
+            Destroy(gameObject);
+        }
     }
 }
