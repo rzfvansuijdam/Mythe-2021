@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player_Climbing : Player
 {
@@ -10,7 +11,7 @@ public class Player_Climbing : Player
     private bool _isAtVine = false;
     private float _wallHeight = 0f;
 
-    private bool _isClimbing = false;
+    public Action<bool> ClimbUpdated;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class Player_Climbing : Player
         _moveInputX = Input.GetAxis("Horizontal");
         _moveInputZ = Input.GetAxis("Vertical");
 
-        if (_isAtVine && Input.GetKeyDown(KeyCode.E))
+        if (_isAtVine && Input.GetKeyDown(KeyCode.E) && !_isCrouching)
         {
             if (_isClimbing)
             {
@@ -57,8 +58,8 @@ public class Player_Climbing : Player
         {
             for (int i = 0; i < 100; i++)
             {
-                transform.position += transform.up * _climbSpeed * 2 * Time.deltaTime;
-                yield return new WaitForSeconds(0.001f);
+                transform.position += transform.up * 2 * Time.deltaTime;
+                yield return new WaitForSeconds(0.0005f);
             }
         }
 

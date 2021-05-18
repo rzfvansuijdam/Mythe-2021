@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -12,17 +13,39 @@ public class Player : MonoBehaviour
 
     [SerializeField] protected GameObject mainCamera;
 
-    //protected bool isCrouching = false;
+    protected static bool _isClimbing = false;
+    protected static bool _isCrouching = false;
+    protected static bool _isHidden = false;
 
-    // Start is called before the first frame update
     void Start()
     {
+        var CrouchScript = GetComponent<Player_Crouching>();
+        CrouchScript.CrouchUpdated += Crouch;
+
+        var ClimbScript = GetComponent<Player_Climbing>();
+        ClimbScript.ClimbUpdated += Climb;
+
+        var HideScript = GetComponent<Player_Hiding>();
+        HideScript.HiddenUpdated += Hide;
+
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    void Crouch(bool c)
+    {
+        _isCrouching = c;
+    }
+    void Climb(bool c)
+    {
+        _isClimbing = c;
+    }
+    void Hide(bool c)
+    {
+        _isHidden = c;
     }
 }
