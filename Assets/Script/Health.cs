@@ -16,8 +16,8 @@ public class Health : MonoBehaviour
 
         if (Lives <= 0f)
         {
-          //  Debug.Log("got em");
-          //  Destroy(gameObject);
+            Debug.Log("you died");
+            Destroy(gameObject);
         }
     }
 }
