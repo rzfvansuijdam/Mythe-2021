@@ -456,7 +456,7 @@ PrefabInstance:
     - target: {fileID: 4904454254343924987, guid: 854df047bd7b7114d87573794292b982,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4904454254343924987, guid: 854df047bd7b7114d87573794292b982,
         type: 3}
@@ -533,9 +533,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea2c3c797acc3d4791958f7cca512e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Velocity: {x: 0, y: 0, z: 0}
+  RidgedBody: {fileID: 0}
+  IsAlive: 1
   grounded: 0
-  timeInAir: 3
-  MaxTime: 3
+  WillDie: 0
+  WillLive: 0
+  DMGVelocity: -10
+  DeathVelocity: -20
 --- !u!114 &2659450101845520144
 MonoBehaviour:
   m_ObjectHideFlags: 0
