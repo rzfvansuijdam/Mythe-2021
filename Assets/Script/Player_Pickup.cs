@@ -14,7 +14,6 @@ public class Player_Pickup : Player
     private GameObject item;
     private List<string> Inventory = new List<string>();
     
-    private Text MyText;
     
     public Action<int> CurrencyUpdated;
     
@@ -26,7 +25,7 @@ public class Player_Pickup : Player
     
     void Start()
     {
-        MyText = GetComponent<Text>();
+
     }
 
     // Update is called once per frame
@@ -45,7 +44,7 @@ public class Player_Pickup : Player
             Inventory.Add(item.name);
             Destroy(item);
         }
-        MyText.text = _currency.ToString();
+       
     }
     
     private void OnTriggerEnter(Collider collision)
