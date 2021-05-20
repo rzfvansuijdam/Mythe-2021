@@ -22,11 +22,11 @@ public class Player_Crouching : Player
 
         Vector3 rayPos = new Vector3(0, transform.localScale.y / 2, 0);
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !_isCrouching)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !_isCrouching && transform.localScale.y == 2)
         {
             StartCoroutine("StartCrouching");
         }
-        if (Input.GetKeyUp(KeyCode.LeftControl) && _isCrouching)
+        else if (Input.GetKeyUp(KeyCode.LeftControl) && _isCrouching && transform.localScale.y == 1.3f)
         {
             if (!Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.up + rayPos))
             {
@@ -44,6 +44,7 @@ public class Player_Crouching : Player
             yield return new WaitForSeconds(0.01f);
         }
         _isCrouching = true;
+        transform.localScale = new Vector3(transform.localScale.x, 1.3f, transform.localScale.z);
         yield return null;
     }
 
@@ -56,6 +57,7 @@ public class Player_Crouching : Player
             yield return new WaitForSeconds(0.01f);
         }
         _isCrouching = false;
+        transform.localScale = new Vector3(transform.localScale.x, 2f, transform.localScale.z);
         yield return null;
     }
 }

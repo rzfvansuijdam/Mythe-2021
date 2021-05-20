@@ -7,8 +7,6 @@ public class Player_Movement : Player
     [SerializeField] private float _maxSpeed = 7;
     [SerializeField] private float _accelSpeed = 20;
 
-    private bool isSprinting = false;
-
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
