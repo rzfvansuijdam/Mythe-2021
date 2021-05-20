@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     protected static bool _isCrouching = false;
     protected static bool _isHidden = false;
 
+    protected static int _currency = 0;
+
     void Start()
     {
         var CrouchScript = GetComponent<Player_Crouching>();
@@ -28,12 +30,15 @@ public class Player : MonoBehaviour
         var HideScript = GetComponent<Player_Hiding>();
         HideScript.HiddenUpdated += Hide;
 
+        var PickupScript = GetComponent<Player_Pickup>();
+        PickupScript.CurrencyUpdated += addCurrency;
+
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-
+        //Debug.Log(_currency);
     }
 
     void Crouch(bool c)
@@ -47,5 +52,10 @@ public class Player : MonoBehaviour
     void Hide(bool c)
     {
         _isHidden = c;
+    }
+    
+    void addCurrency(int c)
+    {
+        _currency += c;
     }
 }
