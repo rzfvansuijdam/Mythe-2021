@@ -23,15 +23,23 @@ public class Player_Movement : Player
 
         Vector3 vel = rb.velocity;
 
-        if (vel.z >= _maxSpeed || vel.z <= -_maxSpeed)
-        {
-            rb.velocity = new Vector3(vel.x, vel.y, _maxSpeed * _movement.z);
-        }
-        if (vel.x >= _maxSpeed || vel.x <= -_maxSpeed)
-        {
-            rb.velocity = new Vector3(_maxSpeed * _movement.x, vel.y, vel.z);
-        }
+        //if (vel.z >= _maxSpeed || vel.z <= -_maxSpeed)
+        //{
+        //    rb.velocity = new Vector3(vel.x, vel.y, _maxSpeed * _movement.z);
+        //}
+        //if (vel.x >= _maxSpeed || vel.x <= -_maxSpeed)
+        //{
+        //    rb.velocity = new Vector3(_maxSpeed * _movement.x, vel.y, vel.z);
+        //}
 
-        rb.velocity += new Vector3(_movement.x, 0, _movement.z) * _accelSpeed * Time.deltaTime;
+        float mag = vel.magnitude;
+        if (mag >= _maxSpeed)
+        {
+            vel = vel.normalized * _maxSpeed;
+        }
+        else
+        {
+            rb.velocity += new Vector3(_movement.x, 0, _movement.z) * _accelSpeed * Time.deltaTime;
+        }
     }
 }
