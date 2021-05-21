@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player_Pickup : Player
@@ -33,18 +34,21 @@ public class Player_Pickup : Player
     {
         if (isAtDropoff && Input.GetKey(KeyCode.E) && Inventory.Count != 0)
         {
-            foreach (string i in Inventory)
-            {
-                _currency += ItemValues[i];
+           // foreach (string i in Inventory)
+           // {
+              //  _currency += ItemValues[i];
 
-                Inventory.Remove(i);
-            }
+               // Inventory.Remove(i);
+           // }
+            SceneManager.LoadScene("Goodjoblad");
         }else if (IsAtItem && Input.GetKeyDown(KeyCode.E))
         {
             Inventory.Add(item.name);
             Destroy(item);
         }
        
+
+
     }
     
     private void OnTriggerEnter(Collider collision)
@@ -67,4 +71,9 @@ public class Player_Pickup : Player
         isAtDropoff = false;
 
     }
+    void Loadscene()
+    {
+        
+    }
+
 }
