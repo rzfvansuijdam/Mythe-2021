@@ -7,8 +7,10 @@ public class Player_Hiding : Player
 {
 
     private bool _isAtBush = false;
+    private bool _inEnemyRange = false;
 
     public Action<bool> HiddenUpdated;
+    public Action<bool> SpottedUpdated;
 
     void Start()
     {
@@ -18,6 +20,7 @@ public class Player_Hiding : Player
     void Update()
     {
         HiddenUpdated(_isHidden);
+        SpottedUpdated(_isSpotted);
 
         if (_isAtBush && _isCrouching)
         {
@@ -26,6 +29,17 @@ public class Player_Hiding : Player
         else
         {
             _isHidden = false;
+        }
+
+        if (_inEnemyRange && _isHidden)
+        {
+            _isSpotted = false;
+        }else if (_inEnemyRange)
+        {
+            _isSpotted = true;
+        }else
+        {
+            _isSpotted = false;
         }
     }
 
@@ -41,11 +55,21 @@ public class Player_Hiding : Player
                 i.color = bushColor;
             }
         }
+        if (collision.name == "DetectionRange")
+        {
+            _inEnemyRange = true;
+        }
     }
 
     private void OnTriggerExit(Collider collision)
     {
         _isAtBush = false;
+
+        if (collision.name == "DetectionRange")
+        {
+            _inEnemyRange = false;
+        }
+
         foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
         {
             Color bushColor = i.color;

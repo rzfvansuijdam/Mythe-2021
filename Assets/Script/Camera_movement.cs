@@ -34,8 +34,8 @@ public class Camera_movement : MonoBehaviour
         rotationX += -Input.GetAxis("Mouse Y") * sensitivity;
         rotationX = Mathf.Clamp(rotationX, -25, 90);
 
-        rotationY += -Input.GetAxis("Mouse X") * sensitivity;
-        rotationY = Mathf.Clamp(90, rotationY, 90);
+        rotationY += Input.GetAxis("Mouse X") * sensitivity;
+        rotationY = Mathf.Clamp(-Mathf.Infinity, rotationY, Mathf.Infinity);
 
         offset.transform.localEulerAngles = new Vector3(rotationX, rotationY, transform.localEulerAngles.z);
 
