@@ -5,8 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    protected static bool _playerIsHidden = false;
-    protected static bool _playerSpotted = false;
+    //protected static bool _playerIsHidden = false;
+    //protected static bool _playerSpotted = false;
 
     void Start()
     {
@@ -15,11 +15,6 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        Debug.Log("Spotted: " + _playerSpotted + ", Hidden: " + _playerIsHidden);
-    }
-
-    public void SetSpotted(bool newValue)
-    {
-        _playerSpotted = newValue;
+        //Debug.Log(gameObject.name + ": Spotted: " + _playerSpotted + ", Hidden: " + _playerIsHidden);
     }
 }

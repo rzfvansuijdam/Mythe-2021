@@ -55,28 +55,19 @@ public class Player_Hiding : Player
                 i.color = bushColor;
             }
         }
-        if (collision.name == "DetectionRange")
-        {
-            _inEnemyRange = true;
-            collision.GetComponentInParent<Enemy>().SetSpotted(_inEnemyRange);
-        }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        _isAtBush = false;
-
-        if (collision.name == "DetectionRange")
+        if (collision.name == "Bush")
         {
-            _inEnemyRange = false;
-            collision.GetComponentInParent<Enemy>().SetSpotted(_inEnemyRange);
-        }
-
-        foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
-        {
-            Color bushColor = i.color;
-            bushColor.a = 1f;
-            i.color = bushColor;
+            _isAtBush = false;
+            foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+            {
+                Color bushColor = i.color;
+                bushColor.a = 1f;
+                i.color = bushColor;
+            }
         }
     }
 }
