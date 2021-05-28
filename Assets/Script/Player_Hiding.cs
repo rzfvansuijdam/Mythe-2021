@@ -58,6 +58,7 @@ public class Player_Hiding : Player
         if (collision.name == "DetectionRange")
         {
             _inEnemyRange = true;
+            collision.GetComponentInParent<Enemy>().SetSpotted(_inEnemyRange);
         }
     }
 
@@ -68,6 +69,7 @@ public class Player_Hiding : Player
         if (collision.name == "DetectionRange")
         {
             _inEnemyRange = false;
+            collision.GetComponentInParent<Enemy>().SetSpotted(_inEnemyRange);
         }
 
         foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())

@@ -14,18 +14,20 @@ public class Enemy_Movement : Enemy
     
     void Update()
     {
-        StartCoroutine("MoveToPOI");
-        Debug.Log(transform.rotation.y);
+        if (!_playerSpotted)
+        {
+            StartCoroutine("MoveToPOI");
+        }
     }
 
     IEnumerator MoveToPOI()
     {
-        Quaternion eRot = transform.rotation;
+        Vector3 eRot = transform.localEulerAngles;
 
         transform.position += transform.forward * Time.deltaTime * 3.5f;
 
-        //eRot.y += 10f;
-        //transform.rotation = Quaternion.Euler(eRot.x, eRot.y, eRot.z);
+        eRot.y += 1f;
+        transform.rotation = Quaternion.Euler(eRot.x, eRot.y, eRot.z);
         yield return null;
     }
 }

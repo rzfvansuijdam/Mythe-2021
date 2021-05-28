@@ -10,17 +10,16 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        var DetectionScript = GetComponent<Enemy_PlayerDetection>();
-        DetectionScript.PlayerSpottedUpdated += SpotPlayer;
+
     }
     
     void Update()
     {
-        
+        Debug.Log("Spotted: " + _playerSpotted + ", Hidden: " + _playerIsHidden);
     }
 
-    void SpotPlayer(bool s)
+    public void SetSpotted(bool newValue)
     {
-        _playerSpotted = s;
+        _playerSpotted = newValue;
     }
 }
