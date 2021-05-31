@@ -9,6 +9,7 @@ public class Player_Movement : Player
 
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
@@ -22,15 +23,6 @@ public class Player_Movement : Player
         Vector3 _movement = _moveX + _moveZ;
 
         Vector3 vel = rb.velocity;
-
-        //if (vel.z >= _maxSpeed || vel.z <= -_maxSpeed)
-        //{
-        //    rb.velocity = new Vector3(vel.x, vel.y, _maxSpeed * _movement.z);
-        //}
-        //if (vel.x >= _maxSpeed || vel.x <= -_maxSpeed)
-        //{
-        //    rb.velocity = new Vector3(_maxSpeed * _movement.x, vel.y, vel.z);
-        //}
 
         float mag = vel.magnitude;
         if (mag >= _maxSpeed)

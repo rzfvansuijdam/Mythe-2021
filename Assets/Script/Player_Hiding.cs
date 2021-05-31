@@ -5,8 +5,8 @@ using System;
 
 public class Player_Hiding : Player
 {
-
-    private bool _isAtBush = false;
+    private bool _isHiding = false;
+    private bool _inEnemyRange = false;
 
     public Action<bool> HiddenUpdated;
 
@@ -19,7 +19,7 @@ public class Player_Hiding : Player
     {
         HiddenUpdated(_isHidden);
 
-        if (_isAtBush && _isCrouching)
+        if (_isHiding && _isCrouching)
         {
             _isHidden = true;
         }
@@ -29,28 +29,37 @@ public class Player_Hiding : Player
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
-        if (collision.name == "Bush")
+        if (collision.tag == "Hideable")
         {
-            _isAtBush = true;
-            foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+            _isHiding = true;
+            if (collision.name == "Bush")
             {
-                Color bushColor = i.color;
-                bushColor.a = 0.5f;
-                i.color = bushColor;
+                foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    Color bushColor = i.color;
+                    bushColor.a = 0.5f;
+                    i.color = bushColor;
+                }
             }
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        _isAtBush = false;
-        foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+        if (collision.tag == "Hideable")
         {
-            Color bushColor = i.color;
-            bushColor.a = 1f;
-            i.color = bushColor;
+            _isHiding = false;
+            if (collision.name == "Bush")
+            {
+                foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    Color bushColor = i.color;
+                    bushColor.a = 1f;
+                    i.color = bushColor;
+                }
+            }
         }
     }
 }
