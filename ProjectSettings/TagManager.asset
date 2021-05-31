@@ -6,7 +6,7 @@ TagManager:
   tags:
   - terrain
   - coin
-  - Hideable
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -16,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - IgnoreLight
+  - 
   - 
   - 
   - 
