@@ -7,6 +7,7 @@ using UnityEngine.Animations;
 public class Door_Script : MonoBehaviour
 {
     private bool CanOpenDoor;
+    private bool DoorIsOpen;
     private GameObject _Door;
     private Animation anime;
 
@@ -29,19 +30,29 @@ public class Door_Script : MonoBehaviour
     private void Start()
     {
         anime = gameObject.GetComponent<Animation>();
-     //   anime["door"].layer = 123;
+        DoorIsOpen = false;
     }
 
+
+    
     private void Update()
     {
 
         
         if (CanOpenDoor && Input.GetKey(KeyCode.E))
         {
-            print("opensaysme");
-            anime.Play("notdoor");
-          
-            
+            anime.Play("doorleft");
+            CanOpenDoor = false;
+            DoorIsOpen = true;
+
+        }
+
+        if (DoorIsOpen && Input.GetKey(KeyCode.E))
+        {
+            anime.Play("doorright");
+            print("closing door");
+            DoorIsOpen = false;
+            CanOpenDoor = true;
         }
     }
 }
