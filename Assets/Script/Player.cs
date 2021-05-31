@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     protected static bool _isClimbing = false;
     protected static bool _isCrouching = false;
     protected static bool _isHidden = false;
-    protected static bool _isSpotted = false;
 
     protected static int _currency = 0;
 
@@ -30,7 +29,6 @@ public class Player : MonoBehaviour
 
         var HideScript = GetComponent<Player_Hiding>();
         HideScript.HiddenUpdated += Hide;
-        HideScript.SpottedUpdated += Spotted;
 
         var PickupScript = GetComponent<Player_Pickup>();
         PickupScript.CurrencyUpdated += addCurrency;
@@ -54,11 +52,6 @@ public class Player : MonoBehaviour
     void Hide(bool h)
     {
         _isHidden = h;
-    }
-
-    void Spotted(bool s)
-    {
-        _isSpotted = s;
     }
 
     void addCurrency(int c)

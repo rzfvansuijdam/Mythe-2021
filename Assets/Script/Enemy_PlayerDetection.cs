@@ -5,10 +5,12 @@ using System;
 
 public class Enemy_PlayerDetection : Enemy
 {
+
     [SerializeField] private GameObject _player;
 
     private bool _playerSpotted = false;
     private bool _playerIsHidden = false;
+    private bool _rayHitPlayer = false;
 
     public Action<bool> InRangeUpdated;
 
@@ -22,15 +24,30 @@ public class Enemy_PlayerDetection : Enemy
     {
         InRangeUpdated(_playerSpotted);
 
+        Vector3 rayDir = _player.transform.position - transform.position;
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, rayDir, out hit))
+        {
+            if(hit.collider.tag == "Player")
+            {
+                _rayHitPlayer = true;
+            }
+            else
+            {
+                _rayHitPlayer = false;
+            }
+        }
+
         if (_playerIsHidden)
         {
             _playerSpotted = false;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.name == "Player")
+        if (other.name == "Player" && _rayHitPlayer)
         {
             if (!_playerIsHidden)
             {

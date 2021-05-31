@@ -5,12 +5,10 @@ using System;
 
 public class Player_Hiding : Player
 {
-
-    private bool _isAtBush = false;
+    private bool _isHiding = false;
     private bool _inEnemyRange = false;
 
     public Action<bool> HiddenUpdated;
-    public Action<bool> SpottedUpdated;
 
     void Start()
     {
@@ -20,9 +18,8 @@ public class Player_Hiding : Player
     void Update()
     {
         HiddenUpdated(_isHidden);
-        SpottedUpdated(_isSpotted);
 
-        if (_isAtBush && _isCrouching)
+        if (_isHiding && _isCrouching)
         {
             _isHidden = true;
         }
@@ -30,43 +27,38 @@ public class Player_Hiding : Player
         {
             _isHidden = false;
         }
-
-        if (_inEnemyRange && _isHidden)
-        {
-            _isSpotted = false;
-        }else if (_inEnemyRange)
-        {
-            _isSpotted = true;
-        }else
-        {
-            _isSpotted = false;
-        }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
-        if (collision.name == "Bush")
+        if (collision.tag == "Hideable")
         {
-            _isAtBush = true;
-            foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+            _isHiding = true;
+            if (collision.name == "Bush")
             {
-                Color bushColor = i.color;
-                bushColor.a = 0.5f;
-                i.color = bushColor;
+                foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    Color bushColor = i.color;
+                    bushColor.a = 0.5f;
+                    i.color = bushColor;
+                }
             }
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.name == "Bush")
+        if (collision.tag == "Hideable")
         {
-            _isAtBush = false;
-            foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+            _isHiding = false;
+            if (collision.name == "Bush")
             {
-                Color bushColor = i.color;
-                bushColor.a = 1f;
-                i.color = bushColor;
+                foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    Color bushColor = i.color;
+                    bushColor.a = 1f;
+                    i.color = bushColor;
+                }
             }
         }
     }
