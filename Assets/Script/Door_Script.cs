@@ -42,7 +42,7 @@ public class Door_Script : MonoBehaviour
         if (CanOpenDoor && Input.GetKey(KeyCode.E))
         {
          //   anime.Play("doorleft");
-         transform.rotation = Vector3(0, 90, 0);
+        // transform.rotation = Vector3(0, 90, 0);
             CanOpenDoor = false;
             DoorIsOpen = true;
 
