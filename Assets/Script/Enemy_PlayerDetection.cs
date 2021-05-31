@@ -16,6 +16,7 @@ public class Enemy_PlayerDetection : Enemy
 
     void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
         var pHideScript = _player.GetComponent<Player_Hiding>();
         pHideScript.HiddenUpdated += pHidden;
     }

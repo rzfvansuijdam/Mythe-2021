@@ -9,6 +9,7 @@ public class Player_Movement : Player
 
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         rb = gameObject.GetComponent<Rigidbody>();
     }
 

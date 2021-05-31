@@ -11,9 +11,11 @@ public class Enemy_Movement : Enemy
     private Vector3 POI;
 
     private bool _playerSpotted = false;
+    private bool _isAtPOI = false;
 
     void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
         var DetectionScript = GetComponent<Enemy_PlayerDetection>();
         DetectionScript.InRangeUpdated += InRange;
 
@@ -22,12 +24,16 @@ public class Enemy_Movement : Enemy
     
     void Update()
     {
-        StartCoroutine("MoveToPOI", POI);
+        if (!_isAtPOI)
+        {
+            StartCoroutine("MoveToPOI", POI);
 
-        Vector3 target = POI - transform.position;
+            //Rotates Towards the poi (point of interest)
+            Vector3 target = POI - transform.position;
+            Vector3 poiDir = Vector3.RotateTowards(transform.forward, target, 5 * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(new Vector3(poiDir.x, 0, poiDir.z));
 
-        Vector3 poiDir = Vector3.RotateTowards(transform.forward, target, 5 * Time.deltaTime, 0.0f);
-        transform.rotation = Quaternion.LookRotation(new Vector3(poiDir.x, 0, poiDir.z));
+        }
 
         CheckPosition(transform.position, POI);
     }
@@ -37,6 +43,27 @@ public class Enemy_Movement : Enemy
         transform.position += transform.forward * Time.deltaTime * 3f;
 
         yield return null;
+    }
+
+    IEnumerator isAtPOI()
+    {
+        _isAtPOI = true;
+        Vector3 target = transform.right * 2;
+        for (int i = 0; i < 60; i++)
+        {
+            Vector3 poiDir = Vector3.RotateTowards(transform.forward, target, 5 * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(new Vector3(poiDir.x, 0, poiDir.z));
+            yield return new WaitForSeconds(0.01f);
+        }
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < 180; i++)
+        {
+            Vector3 poiDir = Vector3.RotateTowards(transform.forward, -target, 5 * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(new Vector3(poiDir.x, 0, poiDir.z));
+            yield return new WaitForSeconds(0.01f);
+        }
+        yield return new WaitForSeconds(1f);
+        _isAtPOI = false;
     }
 
     void CheckPosition(Vector3 _ePos, Vector3 _tPos)
@@ -54,6 +81,7 @@ public class Enemy_Movement : Enemy
                 _walkRouteNum++;
             }
             POI = _walkRoute[_walkRouteNum];
+            StartCoroutine("isAtPOI");
         }
     }
 
@@ -66,6 +94,8 @@ public class Enemy_Movement : Enemy
         }
         else
         {
+            StopCoroutine("isAtPOI");
+            _isAtPOI = false;
             POI = _player.transform.localPosition;
         }
     }
