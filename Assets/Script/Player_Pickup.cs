@@ -17,11 +17,11 @@ public class Player_Pickup : Player
     
     
     public Action<int> CurrencyUpdated;
-
+    
     public static Dictionary<string, int> ItemValues = new Dictionary<string, int>
     {
         {"Item_coin", 100},
-        {"Item_vase", 500},
+        {"Item_vase", 500}
     };
     
     void Start()

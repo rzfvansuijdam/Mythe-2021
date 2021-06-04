@@ -6,8 +6,6 @@ TagManager:
   tags:
   - terrain
   - coin
-  - MainDoor
-  - key
   layers:
   - Default
   - TransparentFX
