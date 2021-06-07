@@ -9,7 +9,6 @@ public class Door_Script : MonoBehaviour
     private bool CanOpenDoor;
     private bool DoorIsOpen;
     private GameObject _Door;
-    private Animation anime;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,6 +18,7 @@ public class Door_Script : MonoBehaviour
         }
 
     }
+
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.tag == "Player")
@@ -29,31 +29,48 @@ public class Door_Script : MonoBehaviour
 
     private void Start()
     {
-        anime = gameObject.GetComponent<Animation>();
+
         DoorIsOpen = false;
     }
 
 
-    
+
     private void Update()
     {
-
         
+        
+
+
         if (CanOpenDoor && Input.GetKey(KeyCode.E))
         {
-         //   anime.Play("doorleft");
-         transform.rotation = Vector3(0, 90, 0);
-            CanOpenDoor = false;
-            DoorIsOpen = true;
+            StartCoroutine(WaitOpen());
+
 
         }
-
+     
         if (DoorIsOpen && Input.GetKey(KeyCode.E))
         {
-          //  anime.Play("doorright");
-            print("closing door");
-            DoorIsOpen = false;
-            CanOpenDoor = true;
+         //   StartCoroutine(WaitClose());
+            
         }
+
     }
+    private IEnumerator WaitOpen()
+    {
+        Vector3 Dir = Vector3.RotateTowards(transform.right, new Vector3(0, 90, 0), 5 * Time.deltaTime, 0.0f);
+        transform.rotation = Quaternion.LookRotation(new Vector3(Dir.x, 0, Dir.z));
+        yield return new WaitForSeconds(3f);
+        DoorIsOpen = true;
+        print("open");
+    }
+ /*   private IEnumerator WaitClose()
+    {
+        Vector3 Dir = Vector3.RotateTowards(-transform.right, new Vector3(0, 180, 0), 5 * Time.deltaTime, 0.0f);
+        transform.rotation = Quaternion.LookRotation(new Vector3(Dir.x, 0, Dir.z));
+        yield return new WaitForSeconds(3f);
+        CanOpenDoor = true;
+        print("not open");
+    }
+
+*/
 }
