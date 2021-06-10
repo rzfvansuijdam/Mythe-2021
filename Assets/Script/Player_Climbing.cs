@@ -80,8 +80,11 @@ public class Player_Climbing : Player
 
     private void OnTriggerExit(Collider collision)
     {
-        _isAtVine = false;
-        _wallHeight = 0f;
-        _isClimbing = false;
+        if (collision.name == "Vine")
+        {
+            _isAtVine = false;
+            _wallHeight = 0f;
+            _isClimbing = false;
+        }
     }
 }

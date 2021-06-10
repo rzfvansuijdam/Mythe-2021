@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     protected Rigidbody rb;
 
-    [SerializeField] protected GameObject mainCamera;
+    protected GameObject mainCamera;
 
     protected static bool _isClimbing = false;
     protected static bool _isCrouching = false;
@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
         var CrouchScript = GetComponent<Player_Crouching>();
         CrouchScript.CrouchUpdated += Crouch;
 
@@ -38,7 +40,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(_currency);
+
     }
 
     void Crouch(bool c)
@@ -49,11 +51,11 @@ public class Player : MonoBehaviour
     {
         _isClimbing = c;
     }
-    void Hide(bool c)
+    void Hide(bool h)
     {
-        _isHidden = c;
+        _isHidden = h;
     }
-    
+
     void addCurrency(int c)
     {
         _currency += c;
