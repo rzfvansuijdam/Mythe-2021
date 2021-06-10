@@ -6,25 +6,24 @@ public class CameraMovement : MonoBehaviour
 {
     public float CameraMoveSpeed = 120.0f;
     public GameObject CameraFollowObj;
-    Vector3 FollowPOS;
-    public float clampAngle = 80.0f;
-    public float inputSensitivity = 150.0f;
+    private Vector3 FollowPOS;
+    public float clampAngle = 50.0f;
+    public float inputSensitivity = 350.0f;
     public GameObject CameraObj;
     public GameObject PlayerObj;
-    public float camDistanceXToPlayer;
-    public float camDistanceYToPlayer;
-    public float camDistanceZToPlayer;
-    public float mouseX;
-    public float mouseY;
-    public float finalInputX;
-    public float finalInputZ;
-    public float smoothX;
-    public float smoothY;
-    public float rotY = 0.0f;
-    public float rotX = 0.0f;
+    private float camDistanceXToPlayer;
+    private float camDistanceYToPlayer;
+    private float camDistanceZToPlayer;
+    private float mouseX;
+    private float mouseY;
+    private float finalInputX;
+    private float finalInputZ;
+    private float smoothX;
+    private float smoothY;
+    private float rotY = 0.0f;
+    private float rotX = 0.0f;
 
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         Vector3 rot = transform.localRotation.eulerAngles;
@@ -33,8 +32,7 @@ public class CameraMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         float inputX = Input.GetAxis("RightStickHorizontal");
@@ -51,18 +49,16 @@ public class CameraMovement : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
+    }
 
-        void LateUpdate ()
-        {
-            CameraUpdater();
-        }
-        void CameraUpdater()
-        {
-            Transform target = CameraFollowObj.transform;
-            float step = CameraMoveSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        }
-
-
+    void LateUpdate()
+    {
+        CameraUpdater();
+    }
+    void CameraUpdater()
+    {
+        Transform target = CameraFollowObj.transform;
+        float step = CameraMoveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
 }
