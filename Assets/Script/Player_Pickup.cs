@@ -24,10 +24,6 @@ public class Player_Pickup : Player
         {"Item_vase", 500}
     };
     
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
