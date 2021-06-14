@@ -7,6 +7,8 @@ TagManager:
   - terrain
   - coin
   - Door
+  - Hideable
+  - enemy
   layers:
   - Default
   - TransparentFX
