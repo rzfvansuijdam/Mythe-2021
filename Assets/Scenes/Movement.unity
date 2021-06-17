@@ -882,7 +882,6 @@ GameObject:
   - component: {fileID: 627467935}
   - component: {fileID: 627467934}
   - component: {fileID: 627467933}
-  - component: {fileID: 627467932}
   - component: {fileID: 627467931}
   m_Layer: 0
   m_Name: Item_vase
@@ -904,18 +903,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &627467932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627467930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88abac2a9a7d7ea478db51e86c3f1ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &627467933
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1818,7 +1805,6 @@ GameObject:
   - component: {fileID: 1316981399}
   - component: {fileID: 1316981398}
   - component: {fileID: 1316981397}
-  - component: {fileID: 1316981396}
   - component: {fileID: 1316981395}
   m_Layer: 0
   m_Name: Item_coin
@@ -1840,18 +1826,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1316981396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316981394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88abac2a9a7d7ea478db51e86c3f1ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1316981397
 CapsuleCollider:
   m_ObjectHideFlags: 0

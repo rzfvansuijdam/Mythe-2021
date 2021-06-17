@@ -51,18 +51,17 @@ public class CameraMovement : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
+    }
 
-        void LateUpdate ()
-        {
-            CameraUpdater();
-        }
-        void CameraUpdater()
-        {
-            Transform target = CameraFollowObj.transform;
-            float step = CameraMoveSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        }
+    void LateUpdate()
+    {
+        CameraUpdater();
+    }
 
-
+    void CameraUpdater()
+    {
+        Transform target = CameraFollowObj.transform;
+        float step = CameraMoveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
 }

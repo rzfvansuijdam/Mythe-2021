@@ -10,7 +10,7 @@ public class Player_Climbing : Player
 
     private bool _isAtVine = false;
     private float _wallHeight = 0f;
-    private float _vineRotation = 0f;
+    private Vector3 _vineRotation;
 
     public Action<bool> ClimbUpdated;
 
@@ -33,7 +33,6 @@ public class Player_Climbing : Player
             else
             {
                 StartCoroutine("StartClimbing");
-                transform.rotation = Quaternion.Euler(0f, _vineRotation, 0f);
                 rb.velocity *= 0;
                 _isClimbing = true;
             }
@@ -56,7 +55,7 @@ public class Player_Climbing : Player
 
     IEnumerator StartClimbing()
     {
-        transform.rotation = Quaternion.Euler(0f, _vineRotation, 0f);
+        transform.rotation = Quaternion.Euler(_vineRotation);
         if (rb.velocity.y >= -0.5f)
         {
             for (int i = 0; i < 100; i++)
@@ -75,6 +74,7 @@ public class Player_Climbing : Player
         {
             _isAtVine = true;
             _wallHeight = collision.gameObject.transform.localScale.y;
+            _vineRotation = new Vector3(transform.eulerAngles.x, collision.transform.eulerAngles.y, transform.eulerAngles.z);
         }
     }
 

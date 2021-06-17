@@ -22,6 +22,8 @@ public class Player_Movement : Player
         Vector3 _moveZ = mainCamera.transform.forward * _moveInputZ;
         Vector3 _movement = _moveX + _moveZ;
 
+        RotatePlayer(_movement);
+
         Vector3 vel = rb.velocity;
 
         float mag = vel.magnitude;
@@ -33,5 +35,13 @@ public class Player_Movement : Player
         {
             rb.velocity += new Vector3(_movement.x, 0, _movement.z) * _accelSpeed * Time.deltaTime;
         }
+    }
+
+    void RotatePlayer(Vector3 m)
+    {
+        Vector3 targetDir = new Vector3(m.x, 0, m.z);
+        float step = 10f * Time.deltaTime;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0f);
+        transform.rotation = Quaternion.LookRotation(newDir);
     }
 }

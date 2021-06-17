@@ -23,32 +23,18 @@ public class Player_Pickup : Player
         {"Item_coin", 100},
         {"Item_vase", 500}
     };
-    
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (isAtDropoff && Input.GetKey(KeyCode.E) && Inventory.Count != 0)
         {
-           // foreach (string i in Inventory)
-           // {
-              //  _currency += ItemValues[i];
-
-               // Inventory.Remove(i);
-           // }
             SceneManager.LoadScene("Goodjoblad");
         }else if (IsAtItem && Input.GetKeyDown(KeyCode.E))
         {
             Inventory.Add(item.name);
             Destroy(item);
+            IsAtItem = false;
         }
-       
-
-
     }
     
     private void OnTriggerEnter(Collider collision)
@@ -67,9 +53,12 @@ public class Player_Pickup : Player
 
     private void OnTriggerExit(Collider collision)
     {
-        IsAtItem = false;
-        isAtDropoff = false;
-
+        if (collision.tag == "coin")
+        {
+            IsAtItem = false;
+            isAtDropoff = false;
+            item = null;
+        }
     }
     void Loadscene()
     {
