@@ -1405,6 +1405,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3875951188382603994, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3875951188382603997, guid: 2fb08c9e429f8c04bacf961f0965fae9,
         type: 3}
       propertyPath: _player
@@ -1474,6 +1479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875951188382603998, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3875951188382604006, guid: 2fb08c9e429f8c04bacf961f0965fae9,
         type: 3}
@@ -3484,6 +3494,7 @@ GameObject:
   - component: {fileID: 1686175748}
   - component: {fileID: 1686175749}
   - component: {fileID: 1686175750}
+  - component: {fileID: 1686175751}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -3679,6 +3690,18 @@ MonoBehaviour:
   WillLive: 0
   DMGVelocity: -8
   DeathVelocity: -10
+--- !u!114 &1686175751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686175738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b66c4df698a65a42a9b56baa96fba51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1741618833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6361737139097759600, guid: b3aee84a655a9b5458c2e067c1c75e32,

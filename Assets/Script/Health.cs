@@ -11,36 +11,32 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey("space"))
-        {
-            Debug.Log(Lives);
-        }
 
         if (Lives <= 0f)
         {
-            Death();
+            GameOver();
         }
 
         if (touchingEnemy == true)
         {
             Health.Lives -= 10;
-            print(Lives);
         }
         
     }
 
-    public void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision Enem)
     {
-        if (other.gameObject.name == "Enemy")
+        if (Enem.gameObject.tag == ("enemy"))
         {
-            touchingEnemy = true;
-            print("T");
+            GameOver();
         }
     }
 
-    public void Death()
+    public void GameOver()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
     }
+
+
 }
