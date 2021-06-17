@@ -3283,11 +3283,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1149461333262411113, guid: df7a1258f5f4cd1488708dc48dbb5356,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 80cf165c74e974d4c962e1832afa67cb, type: 2}
     - target: {fileID: 1149461333857503674, guid: df7a1258f5f4cd1488708dc48dbb5356,
         type: 3}
       propertyPath: m_RootOrder
@@ -3353,11 +3348,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle_Front
       objectReference: {fileID: 0}
-    - target: {fileID: 1149461334598211101, guid: df7a1258f5f4cd1488708dc48dbb5356,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 80cf165c74e974d4c962e1832afa67cb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df7a1258f5f4cd1488708dc48dbb5356, type: 3}
 --- !u!1001 &6965584131315840941
