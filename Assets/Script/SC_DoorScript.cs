@@ -49,16 +49,6 @@ public class SC_DoorScript : MonoBehaviour
         }
     }
 
-    // Display a simple info message when player is inside the trigger area (This is for testing purposes only so you can remove it)
- /*   void OnGUI()
-    {
-        if (enter)
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 155, 30), "Press 'F' to " + (open ? "close" : "open") + " the door");
-        }
-    }
-    */
-    //
 
     // Activate the Main function when Player enter the trigger area
     void OnTriggerEnter(Collider other)
