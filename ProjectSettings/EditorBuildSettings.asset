@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Goodjoblad.unity
     guid: 40ec08a2602f5fa4fbe65ccc12044b83
+  - enabled: 1
+    path: Assets/Scenes/Castle_Inside.unity
+    guid: 29e544b2503b0094da7445ced8f06a34
   m_configObjects: {}

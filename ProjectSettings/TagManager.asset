@@ -8,7 +8,11 @@ TagManager:
   - coin
   - Door
   - Hideable
+<<<<<<< HEAD
   - enemy
+=======
+  - Teleporter
+>>>>>>> texturing-castle
   layers:
   - Default
   - TransparentFX
