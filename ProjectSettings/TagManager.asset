@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Terrain
   - terrain
+  - Hideable
   layers:
   - Default
   - TransparentFX

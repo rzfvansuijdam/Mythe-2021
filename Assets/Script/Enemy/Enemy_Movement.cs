@@ -56,7 +56,7 @@ public class Enemy_Movement : Enemy
             yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(1f);
-        for (int i = 0; i < 180; i++)
+        for (int i = 0; i < 120; i++)
         {
             Vector3 poiDir = Vector3.RotateTowards(transform.forward, -target, 5 * Time.deltaTime, 0.0f);
             transform.rotation = Quaternion.LookRotation(new Vector3(poiDir.x, 0, poiDir.z));

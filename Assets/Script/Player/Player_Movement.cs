@@ -7,10 +7,13 @@ public class Player_Movement : Player
     [SerializeField] private float _maxSpeed = 7;
     [SerializeField] private float _accelSpeed = 20;
 
+    Animator anim;
+
     void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         rb = gameObject.GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -35,6 +38,8 @@ public class Player_Movement : Player
         {
             rb.velocity += new Vector3(_movement.x, 0, _movement.z) * _accelSpeed * Time.deltaTime;
         }
+
+        anim.SetFloat("Speed", mag);
     }
 
     void RotatePlayer(Vector3 m)

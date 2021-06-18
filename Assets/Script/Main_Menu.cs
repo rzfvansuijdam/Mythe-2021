@@ -16,6 +16,8 @@ public class Main_Menu : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             Pause();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     
     }
@@ -42,6 +44,8 @@ public class Main_Menu : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 

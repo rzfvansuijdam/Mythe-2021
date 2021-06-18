@@ -33,7 +33,7 @@ public class Player_Hiding : Player
         if (collision.tag == "Hideable")
         {
             _isHiding = true;
-            if (collision.name == "Bush")
+            if (collision.name == "Hay")
             {
                 foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
                 {
@@ -50,7 +50,7 @@ public class Player_Hiding : Player
         if (collision.tag == "Hideable")
         {
             _isHiding = false;
-            if (collision.name == "Bush")
+            if (collision.name == "Hay")
             {
                 foreach (SpriteRenderer i in collision.GetComponentsInChildren<SpriteRenderer>())
                 {
