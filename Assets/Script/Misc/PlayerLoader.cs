@@ -10,7 +10,7 @@ public class PlayerLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject _player = (GameObject)Resources.Load("Prefabs/Player_old");
+        GameObject _player = (GameObject)Resources.Load("Prefabs/Player");
 
         Instantiate(_player, playerSpawnPos, Quaternion.identity);
     }
