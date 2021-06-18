@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7794206274647664504}
   - component: {fileID: 7794206274647664507}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Vine_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,8 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7794206274916335228}
   - component: {fileID: 7794206274916335231}
-  m_Layer: 0
-  m_Name: Vine 1
+  m_Layer: 2
+  m_Name: Vine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

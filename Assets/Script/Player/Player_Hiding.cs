@@ -6,7 +6,6 @@ using System;
 public class Player_Hiding : Player
 {
     private bool _isHiding = false;
-    private bool _inEnemyRange = false;
 
     public Action<bool> HiddenUpdated;
 
