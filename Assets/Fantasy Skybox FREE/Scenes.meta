@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/3Skyboxes.meta
+guid: 5e399e80d132ef24aacde6ed0ddd5bb5
+=======
 guid: 9d20d945c0685494ba906e939e1dd86f
+>>>>>>> texturing-castle:Assets/Fantasy Skybox FREE/Scenes.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

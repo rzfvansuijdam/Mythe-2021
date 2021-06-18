@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Script/CameraCollision.cs.meta
 guid: df4bb9e937d0c3c489007e824b5338d2
+=======
+guid: 0b06134ccf3c03c4083bc61b37dca950
+>>>>>>> feature-Lockable_door:Assets/Script/SC_DoorScript.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

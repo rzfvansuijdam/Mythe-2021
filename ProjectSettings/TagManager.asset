@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Terrain
   - terrain
-  - coin
-  - Door
-  - Hideable
-  - Teleporter
   layers:
   - Default
   - TransparentFX
