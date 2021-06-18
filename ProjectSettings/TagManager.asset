@@ -4,15 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Terrain
   - terrain
-  - coin
-  - Door
-  - Hideable
-<<<<<<< HEAD
-  - enemy
-=======
-  - Teleporter
->>>>>>> texturing-castle
   layers:
   - Default
   - TransparentFX

@@ -10,11 +10,12 @@ public class Main_Menu : MonoBehaviour
 
     private bool GameIsPaused = false;
     public GameObject PauseMenu;
+    
     private void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-           Pause();
+            Pause();
         }
     
     }

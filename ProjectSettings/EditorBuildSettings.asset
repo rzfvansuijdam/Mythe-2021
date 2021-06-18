@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: c68da4474a2b2364eb38260d50bcdfed
   - enabled: 1
-    path: Assets/Scenes/Movement.unity
-    guid: a12d6dd611a026a4ea0ac053c9a9918f
+    path: Assets/Scenes/Main.unity
+    guid: 66ad85ae72b2d4544a5183958f35cfd0
   - enabled: 1
     path: Assets/Scenes/Lose_Screen.unity
     guid: b0d2419734e135a41b1ecf035f173ff0
