@@ -8,6 +8,7 @@ TagManager:
   - terrain
   - Hideable
   - Teleporter
+  - coin
   layers:
   - Default
   - TransparentFX
