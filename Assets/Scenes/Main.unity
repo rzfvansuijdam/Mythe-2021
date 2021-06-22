@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18449655, g: 0.58601546, b: 0.7348378, a: 1}
+  m_IndirectSpecularColor: {r: 0.18455052, g: 0.58601147, b: 0.73483807, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1873,6 +1873,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1567061530528193320, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567061530528193320, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3875951188382603997, guid: 2fb08c9e429f8c04bacf961f0965fae9,
         type: 3}
       propertyPath: _walkRoute.Array.size
@@ -1998,7 +2008,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7671902908545267578, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008468757433669917, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2fb08c9e429f8c04bacf961f0965fae9, type: 3}
 --- !u!64 &1922284867
 MeshCollider:
