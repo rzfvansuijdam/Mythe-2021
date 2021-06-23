@@ -9,6 +9,7 @@ TagManager:
   - Hideable
   - Teleporter
   - coin
+  - enemy
   layers:
   - Default
   - TransparentFX

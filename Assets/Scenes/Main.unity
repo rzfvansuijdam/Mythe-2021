@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18449655, g: 0.58601546, b: 0.7348378, a: 1}
+  m_IndirectSpecularColor: {r: 0.18455052, g: 0.58601147, b: 0.73483807, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2751,6 +2751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3875951188382603998, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3875951188382604007, guid: 2fb08c9e429f8c04bacf961f0965fae9,
         type: 3}
       propertyPath: m_RootOrder
@@ -3438,6 +3443,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f51834c1c4a064891106a2d1d457d6, type: 3}
+--- !u!1 &1625984318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1101064896544711384, guid: af286ed7b63515e4a9c87eb56fb97747,
+    type: 3}
+  m_PrefabInstance: {fileID: 323576685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1625984320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625984318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea2c3c797acc3d4791958f7cca512e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Velocity: {x: 0, y: 0, z: 0}
+  RidgedBody: {fileID: 1625984329}
+  IsAlive: 1
+  grounded: 0
+  WillDie: 0
+  WillLive: 0
+  DMGVelocity: -8
+  DeathVelocity: -12
+--- !u!114 &1625984321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625984318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b66c4df698a65a42a9b56baa96fba51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1625984329 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1101064896544693538, guid: af286ed7b63515e4a9c87eb56fb97747,
+    type: 3}
+  m_PrefabInstance: {fileID: 323576685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1671907004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3858,6 +3907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875951188382603998, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3875951188382604007, guid: 2fb08c9e429f8c04bacf961f0965fae9,
         type: 3}

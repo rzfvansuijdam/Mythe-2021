@@ -13,6 +13,7 @@ public class PlayerLoader : MonoBehaviour
         GameObject _player = (GameObject)Resources.Load("Prefabs/Player");
 
         Instantiate(_player, playerSpawnPos, Quaternion.identity);
+        print("This.gameobject:" + this.gameObject);
     }
 
     // Update is called once per frame

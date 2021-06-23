@@ -15,7 +15,7 @@ public class Enemy_Movement : Enemy
 
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("player");
         var DetectionScript = GetComponent<Enemy_PlayerDetection>();
         DetectionScript.InRangeUpdated += InRange;
 
