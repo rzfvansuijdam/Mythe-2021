@@ -17,6 +17,7 @@ public class Player_Teleport : Player
         
     }
 
+
     void Update()
     {
         
@@ -29,6 +30,7 @@ public class Player_Teleport : Player
             if (collision.gameObject.name == "Castle_Outside")
             {
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);
+               
             }
             else
             {
