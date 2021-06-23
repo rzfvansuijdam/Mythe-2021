@@ -6,16 +6,16 @@ using System;
 public class Player_Crouching : Player
 {
 
-    private float standHeight = 2;
-    private float crouchHeight = 1.3f;
-
     [SerializeField] private CapsuleCollider playerCol;
 
     public Action<bool> CrouchUpdated;
 
+    Animator anim;
+
     void Start()
     {
         playerCol = GetComponent<CapsuleCollider>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -24,42 +24,34 @@ public class Player_Crouching : Player
 
         Vector3 rayPos = new Vector3(0, transform.localScale.y / 2, 0);
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !_isCrouching && transform.localScale.y == 2)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !_isCrouching)
         {
             StartCoroutine("StartCrouching");
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl) && _isCrouching && transform.localScale.y == 1.3f)
+        else if (Input.GetKeyDown(KeyCode.LeftControl) && _isCrouching)
         {
             if (!Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.up + rayPos))
             {
                 StartCoroutine("StopCrouching");
             }
         }
+
+        anim.SetBool("IsCrouching", _isCrouching);
     }
 
     IEnumerator StartCrouching()
     {
-        for (int i = 0; i < 50; i++)
-        {
-            playerCol.transform.localScale -= new Vector3(0, (standHeight - crouchHeight) / 50, 0);
-            //transform.position -= new Vector3(0, (standHeight - crouchHeight) / 50, 0);
-            yield return new WaitForSeconds(0.01f);
-        }
         _isCrouching = true;
-        playerCol.transform.localScale = new Vector3(transform.localScale.x, 1.3f, transform.localScale.z);
+        playerCol.height = 1.8f;
+        yield return new WaitForSeconds(1f);
         yield return null;
     }
 
     IEnumerator StopCrouching()
     {
-        for (int i = 0; i < 50; i++)
-        {
-            playerCol.transform.localScale += new Vector3(0, (standHeight - crouchHeight) / 50, 0);
-            //transform.position += new Vector3(0, (standHeight - crouchHeight) / 50, 0);
-            yield return new WaitForSeconds(0.01f);
-        }
         _isCrouching = false;
-        playerCol.transform.localScale = new Vector3(transform.localScale.x, 2f, transform.localScale.z);
+        transform.position -= new Vector3(0, 0.3f, 0);
+        playerCol.height = 1f;
         yield return null;
     }
 }

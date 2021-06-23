@@ -1,6 +1,12 @@
 fileFormatVersion: 2
-guid: 2fa48933e7d9aeb44a5db2ed7ad44724
+<<<<<<< HEAD:Assets/Prefabs/FBX__GOLD (14).prefab.meta
+guid: f7a0a93b6c1c1fc45b10bac6c0247a31
 PrefabImporter:
+=======
+guid: 7623af9e63274bf46a3d88d461d17728
+folderAsset: yes
+DefaultImporter:
+>>>>>>> Animations:Assets/Prefabs/Throne Room - ingericht. Textures en FBX/zak texture.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

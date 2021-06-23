@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 8e36a0c4544ae4842964c8d3077a3846
+<<<<<<< HEAD:Assets/Materials/Materials.meta
+guid: e8e78f52ba9228a4d867472212683851
+=======
+guid: 3a20fee694185be4cb29f1773ef42155
+>>>>>>> Animations:Assets/Prefabs/Throne Room - ingericht. Textures en FBX/krat (isa) texture.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
