@@ -12,31 +12,24 @@ public class Player_Teleport : Player
         {"Castle_Outside", new Vector3(-1.14f, 36.19f, -14.45f)}
     };
 
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Teleporter")
         {
+            PlayerLoader.playerSpawnPos = TpSpots[collision.gameObject.name];
             if (collision.gameObject.name == "Castle_Outside")
             {
+
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);
                
             }
             else
             {
-                PlayerLoader.playerSpawnPos = TpSpots[collision.gameObject.name];
+               
                 SceneManager.LoadScene("Castle_Inside", LoadSceneMode.Single);
             }
+            
         }
     }
 }

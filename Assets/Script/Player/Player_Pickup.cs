@@ -26,7 +26,7 @@ public class Player_Pickup : Player
 
     void Update()
     {
-        if (isAtDropoff && Input.GetKey(KeyCode.E) && Inventory.Count != 0)
+        if (isAtDropoff && Input.GetKey(KeyCode.E)/* && Inventory.Count != 0*/)
         {
             SceneManager.LoadScene("Goodjoblad");
         }else if (IsAtItem && Input.GetKeyDown(KeyCode.E))

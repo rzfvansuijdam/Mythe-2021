@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerLoader : MonoBehaviour
 {
 
-    public static Vector3 playerSpawnPos;
+    public static Vector3 playerSpawnPos = new Vector3(-6.58f, 24.34f, 70f);
 
     // Start is called before the first frame update
     void Start()
@@ -13,12 +13,7 @@ public class PlayerLoader : MonoBehaviour
         GameObject _player = (GameObject)Resources.Load("Prefabs/Player");
 
         Instantiate(_player, playerSpawnPos, Quaternion.identity);
-        print("This.gameobject:" + this.gameObject);
+       
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
