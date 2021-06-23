@@ -2015,6 +2015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008468757433669917, guid: 2fb08c9e429f8c04bacf961f0965fae9,
         type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 5c712b0dba6391343b8f4b17592d9e63, type: 3}
+    - target: {fileID: 8008468757433669917, guid: 2fb08c9e429f8c04bacf961f0965fae9,
+        type: 3}
       propertyPath: m_CullingMode
       value: 1
       objectReference: {fileID: 0}

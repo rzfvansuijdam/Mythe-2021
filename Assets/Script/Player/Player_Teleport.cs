@@ -32,9 +32,9 @@ public class Player_Teleport : Player
             }
             else
             {
-                PlayerLoader.playerSpawnPos = TpSpots[collision.gameObject.name];
                 SceneManager.LoadScene("Castle_Inside", LoadSceneMode.Single);
             }
+            PlayerLoader.playerSpawnPos = TpSpots[collision.gameObject.name];
         }
     }
 }
