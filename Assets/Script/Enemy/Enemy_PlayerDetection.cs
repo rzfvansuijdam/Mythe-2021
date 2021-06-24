@@ -6,7 +6,7 @@ using System;
 public class Enemy_PlayerDetection : Enemy
 {
 
-    [SerializeField] private GameObject _player;
+    [SerializeField] public GameObject _player;
 
     [SerializeField] private bool _playerSpotted = false;
     private bool _playerIsHidden = false;
