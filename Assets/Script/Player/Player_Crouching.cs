@@ -42,7 +42,7 @@ public class Player_Crouching : Player
     IEnumerator StartCrouching()
     {
         _isCrouching = true;
-        playerCol.height = 1.8f;
+        //playerCol.height = 1.8f;
         yield return new WaitForSeconds(1f);
         yield return null;
     }
@@ -50,8 +50,8 @@ public class Player_Crouching : Player
     IEnumerator StopCrouching()
     {
         _isCrouching = false;
-        transform.position -= new Vector3(0, 0.3f, 0);
-        playerCol.height = 1f;
+        //transform.position -= new Vector3(0, 0.3f, 0);
+        //playerCol.height = 1f;
         yield return null;
     }
 }
