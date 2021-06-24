@@ -6,7 +6,7 @@ using System;
 public class Enemy_PlayerDetection : Enemy
 {
 
-    [SerializeField] private GameObject _player;
+    [SerializeField] public GameObject _player;
 
     private bool _playerSpotted = false;
     private bool _playerIsHidden = false;
@@ -48,7 +48,7 @@ public class Enemy_PlayerDetection : Enemy
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.name == "Player" && _rayHitPlayer)
+        if (other.tag == "Player" && _rayHitPlayer)
         {
             if (!_playerIsHidden)
             {
@@ -63,7 +63,7 @@ public class Enemy_PlayerDetection : Enemy
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "Player")
+        if (other.tag == "Player")
         {
             _playerSpotted = false;
         }
