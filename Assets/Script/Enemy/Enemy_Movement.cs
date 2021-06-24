@@ -15,7 +15,6 @@ public class Enemy_Movement : Enemy
 
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
         var DetectionScript = GetComponent<Enemy_PlayerDetection>();
         DetectionScript.InRangeUpdated += InRange;
 
@@ -24,6 +23,7 @@ public class Enemy_Movement : Enemy
     
     void Update()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
         if (!_isAtPOI)
         {
             StartCoroutine("MoveToPOI", POI);
