@@ -22,9 +22,7 @@ public class CameraMovement : MonoBehaviour
     public float smoothY;
     public float rotY = 0.0f;
     public float rotX = 0.0f;
-
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         Vector3 rot = transform.localRotation.eulerAngles;
@@ -33,8 +31,7 @@ public class CameraMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         float inputX = Input.GetAxis("RightStickHorizontal");

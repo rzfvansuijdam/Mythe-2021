@@ -22,7 +22,8 @@ public class Player_Crouching : Player
     {
         CrouchUpdated(_isCrouching);
 
-        Vector3 rayPos = new Vector3(0, transform.localScale.y / 2, 0);
+        Vector3 rayPos = new Vector3(0, transform.localScale.y / 4, 0);
+        bool rayHit = Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.up * 0.1f, transform.rotation, 0.5f);
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && !_isCrouching)
         {
@@ -30,10 +31,12 @@ public class Player_Crouching : Player
         }
         else if (Input.GetKeyDown(KeyCode.LeftControl) && _isCrouching)
         {
-            if (!Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), transform.up + rayPos))
+            if (!rayHit)
             {
+                Debug.Log("Yes I can stahp");
                 StartCoroutine("StopCrouching");
             }
+            else { Debug.Log("No I can't stahp"); }
         }
 
         anim.SetBool("IsCrouching", _isCrouching);
@@ -42,7 +45,6 @@ public class Player_Crouching : Player
     IEnumerator StartCrouching()
     {
         _isCrouching = true;
-        //playerCol.height = 1.8f;
         yield return new WaitForSeconds(1f);
         yield return null;
     }
@@ -50,8 +52,6 @@ public class Player_Crouching : Player
     IEnumerator StopCrouching()
     {
         _isCrouching = false;
-        //transform.position -= new Vector3(0, 0.3f, 0);
-        //playerCol.height = 1f;
         yield return null;
     }
 }
