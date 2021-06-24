@@ -16,13 +16,15 @@ public class Enemy_PlayerDetection : Enemy
 
     void Start()
     {
-        var pHideScript = _player.GetComponent<Player_Hiding>();
-        pHideScript.HiddenUpdated += pHidden;
+        
     }
 
     void Update()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        var pHideScript = _player.GetComponent<Player_Hiding>();
+        pHideScript.HiddenUpdated += pHidden;
+
         InRangeUpdated(_playerSpotted);
 
         Vector3 rayDir = _player.transform.position - transform.position;

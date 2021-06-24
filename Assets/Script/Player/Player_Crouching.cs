@@ -33,10 +33,8 @@ public class Player_Crouching : Player
         {
             if (!rayHit)
             {
-                Debug.Log("Yes I can stahp");
                 StartCoroutine("StopCrouching");
             }
-            else { Debug.Log("No I can't stahp"); }
         }
 
         anim.SetBool("IsCrouching", _isCrouching);

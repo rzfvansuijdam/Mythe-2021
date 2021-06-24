@@ -42,6 +42,8 @@ public class Health : Player
         {
             GameOver();
         }
+
+        db.gameObject.SetActive(_isSpotted);
     }
 
     void UpdateDbUI()
