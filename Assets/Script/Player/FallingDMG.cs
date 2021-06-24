@@ -77,8 +77,8 @@ public class FallingDMG : MonoBehaviour
         if (WillLive && grounded)
         {
             WillLive = false;
-            Health.Lives = 10;
-            print(Health.Lives);
+            Health._lives = 10;
+            print(Health._lives);
         }
         
     }

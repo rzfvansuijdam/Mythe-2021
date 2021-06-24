@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 3875951188171805687}
   m_Layer: 2
   m_Name: DetectionRange
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 3875951188382604006}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1101064896544711384, guid: af286ed7b63515e4a9c87eb56fb97747, type: 3}
+  _playerSpotted: 0
 --- !u!95 &8008468757433669917
 Animator:
   serializedVersion: 3

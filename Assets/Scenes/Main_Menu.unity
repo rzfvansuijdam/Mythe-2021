@@ -715,8 +715,8 @@ Canvas:
   m_GameObject: {fileID: 1189985876}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 391796167}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43842833e064cb4fb31814e9ffdf70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 1189985876}
 --- !u!1 &2031012303
 GameObject:
   m_ObjectHideFlags: 0

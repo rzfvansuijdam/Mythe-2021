@@ -10,18 +10,23 @@ public class Main_Menu : MonoBehaviour
 
     private bool GameIsPaused = false;
     public GameObject PauseMenu;
-    
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Update()
     {
+        GetComponentInParent<Canvas>().worldCamera = Camera.main;
         if (Input.GetKey(KeyCode.Escape))
         {
             Pause();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-    
     }
-
 
     public void ToGame()
     {
