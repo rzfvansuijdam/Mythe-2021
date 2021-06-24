@@ -8,7 +8,7 @@ public class Enemy_PlayerDetection : Enemy
 
     [SerializeField] public GameObject _player;
 
-    private bool _playerSpotted = false;
+    [SerializeField] private bool _playerSpotted = false;
     private bool _playerIsHidden = false;
     private bool _rayHitPlayer = false;
 
@@ -16,13 +16,13 @@ public class Enemy_PlayerDetection : Enemy
 
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
         var pHideScript = _player.GetComponent<Player_Hiding>();
         pHideScript.HiddenUpdated += pHidden;
     }
 
     void Update()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
         InRangeUpdated(_playerSpotted);
 
         Vector3 rayDir = _player.transform.position - transform.position;
@@ -30,7 +30,7 @@ public class Enemy_PlayerDetection : Enemy
         RaycastHit hit;
         if (Physics.Raycast(transform.position, rayDir, out hit))
         {
-            if(hit.collider.tag == "Player")
+            if(hit.collider.gameObject.tag == "Player")
             {
                 _rayHitPlayer = true;
             }
