@@ -25,11 +25,11 @@ public class Main_Menu : MonoBehaviour
 
     public void ToGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
     public void ToMainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("Main_Menu", LoadSceneMode.Single);
     }
 
     public void Pause()
