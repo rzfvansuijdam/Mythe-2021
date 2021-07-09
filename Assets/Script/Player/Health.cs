@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneName: "Scenes/Lose_Screen");
         
     }
 
